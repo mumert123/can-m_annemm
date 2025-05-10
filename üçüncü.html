@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Son Bir Söz</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('arkaplan3.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .ortali-kutu {
+      background: rgba(255, 182, 193, 0.7);
+      border: 2px solid #c71585;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .mektup-buton {
+      margin-top: 30px;
+      background-color: #ff69b4;
+      border: none;
+      padding: 16px;
+      border-radius: 30px;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .mektup-buton:hover {
+      background-color: #ff1493;
+    }
+
+    #yazi-kutusu {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid #c71585;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ortali-kutu">
+    <p>Buraya son duygunu yazabilirsin.</p>
+  </div>
+
+  <button class="mektup-buton" onclick="yaziGoster()">✉</button>
+
+  <div id="yazi-kutusu">
+    <p>Yazı buraya gelecek (sen yazacaksın).</p>
+  </div>
+
+  <audio id="arkaplanMuzik" loop>
+    <source src="muzik.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    if (localStorage.getItem("muzikCal") === "evet") {
+      document.getElementById("arkaplanMuzik").play().catch(() => {});
+    }
+
+    function yaziGoster() {
+      document.getElementById('yazi-kutusu').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

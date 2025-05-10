@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seninle Başlayan...</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('arkaplan1.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .ortali-kutu {
+      background: rgba(255, 182, 193, 0.7);
+      border: 2px solid #c71585;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    button {
+      background-color: #ff69b4;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .kalp {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ortali-kutu">
+    <p>Buraya ilk yazını yazabilirsin.</p>
+    <button onclick="muzikBasla()">
+      <span class="kalp">♥</span>
+    </button>
+  </div>
+
+  <audio id="arkaplanMuzik" loop>
+    <source src="muzik.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function muzikBasla() {
+      const muzik = document.getElementById("arkaplanMuzik");
+      muzik.play();
+      localStorage.setItem("muzikCal", "evet");
+      window.location.href = 'ikinci.html';
+    }
+
+    // Eğer kullanıcı geri dönerse tekrar çalsın
+    if (localStorage.getItem("muzikCal") === "evet") {
+      document.getElementById("arkaplanMuzik").play().catch(() => {});
+    }
+  </script>
+
+</body>
+</html>
